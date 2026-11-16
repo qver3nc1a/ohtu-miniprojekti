@@ -10,7 +10,9 @@
 
 -Jos joku ei pysy sovitussa mietitään ryhmän kanssa ja/tai imoitetaan ohjaajalle
 
-Commit viestien muoto mukailee [tällä sivulla olevaa muotoa](https://medium.com/@iambonitheuri/the-art-of-writing-meaningful-git-commit-messages-a56887a4cb49)
+-Daily scrumeja vaikea pitää, sillä kaikki tekevät omaat tahtiin ja eri päivinä, joten discord-ryhmään ilmoitetaan aina kun aloitetaan oma task, kun task on valmis, ja jos tarvitaan apua
+
+-Commit viestien muoto mukailee [tällä sivulla olevaa muotoa](https://medium.com/@iambonitheuri/the-art-of-writing-meaningful-git-commit-messages-a56887a4cb49)
 ```
 <type>[optional scope]: <description>
 
