@@ -1,3 +1,8 @@
 .venv/
 __pycache__/
 .pytest_cache/
+log.html
+output.xml
+report.html
+playwright-log.txt
+.DS_Store
