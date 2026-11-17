@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <head>
-    <title>Saved Articles</title>
+    <title>Tallennetut artikkelit</title>
 </head>
 <body>
 
-    <h1>Saved Articles</h1> 
+    <h1>Tallennetut artikkelit</h1> 
  
     {% for paper in papers %} 
         <article> 
             <h2>{{ paper.title }}</h2> 
 
-            <p><strong>Author:</strong> {{ paper.author }}</p> 
-            <p><strong>Year:</strong> {{ paper.year }}</p> 
+            <p><strong>Tekijä:</strong> {{ paper.author }}</p> 
+            <p><strong>Vuosi:</strong> {{ paper.year }}</p> 
 
             {% if paper.journal %} 
-                <p><strong>Journal:</strong> {{ paper.journal }}</p> 
+                <p><strong>Julkaisu:</strong> {{ paper.journal }}</p> 
             {% endif %} 
             {% if paper.volume %} 
-                <p><strong>Volume:</strong> {{ paper.volume }}</p> 
+                <p><strong>Vuosikerta:</strong> {{ paper.volume }}</p> 
             {% endif %}
             {% if paper.number %}
-                <p><strong>Number:</strong> {{ paper.number }}</p>
+                <p><strong>Numero:</strong> {{ paper.number }}</p>
             {% endif %}
             {% if paper.pages %} 
-                <p><strong>Pages:</strong> {{ paper.pages }}</p> 
+                <p><strong>Sivut:</strong> {{ paper.pages }}</p> 
             {% endif %} 
         </article> 
     {% else %} 
-        <p>No articles have been added yet.</p> 
+        <p>Artikkeleita ei ole vielä lisätty.</p> 
     {% endfor %} 
 
 </body>
