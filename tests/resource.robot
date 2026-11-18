@@ -6,6 +6,7 @@ ${SERVER}     localhost:5001
 ${DELAY}      500ms
 ${HOME_URL}   http://${SERVER}
 ${NEW_PAPER_URL}  http://${SERVER}/new_paper
+${PAPERS_URL}  http://${SERVER}/papers
 ${RESET_URL}  http://${SERVER}/reset_db
 ${BROWSER}    chromium
 ${HEADLESS}   false
