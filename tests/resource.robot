@@ -5,6 +5,7 @@ Library  Browser
 ${SERVER}     localhost:5001
 ${DELAY}      500ms
 ${HOME_URL}   http://${SERVER}
+${NEW_PAPER_URL}  http://${SERVER}/new_paper
 ${RESET_URL}  http://${SERVER}/reset_db
 ${BROWSER}    chromium
 ${HEADLESS}   false
@@ -20,7 +21,7 @@ Open And Configure Browser
     New Page  about:blank
 
 New Papers Page Should Be Open
-    #TODO
+    Get Title  ==  New paper
 
 Reset Database
     Go To  ${RESET_URL}
