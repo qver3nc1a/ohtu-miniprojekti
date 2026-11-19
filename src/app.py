@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, redirect
+from src.database import create_tables
 from src.papers import add_paper, get_papers
 
 app = Flask(__name__)
-
+create_tables()
 
 @app.route("/")
 def index():
