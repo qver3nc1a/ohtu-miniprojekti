@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>New paper</title>
+    <title>Uusi artikkeli</title>
 </head>
 <body>
+    <h1>Lisää uusi artikkeli</h1>
     <form action="/add_paper" method="post">
-        <input type="text" name="author" placeholder="Author" required>
-        <input type="text" name="title" placeholder="Title" required>
-        <input type="text" name="journal" placeholder="Journal">
-        <input type="number" name="year" placeholder="Year" required>
-        <input type="number" name="volume" placeholder="Volume">
-        <input type="number" name="number" placeholder="Number">
-        <input type="text" name="pages" placeholder="Pages">
+        <p>
+            <label for="author">Tekijä:</label>
+            <input type="text" name="author" id='author' required>
+        </p>
 
-        <button type="submit">Add paper</button>
+        <p>
+            <label for="title">Otsikko:</label>
+            <input type="text" name="title" required>
+        </p>
+
+        <p>
+            <label for="journal">Julkaisu:</label>
+            <input type="text" name="journal" >
+        </p>
+
+        <p>
+            <label for="year">Vuosi:</label>
+            <input type="number" name="year" required>
+        </p>
+
+        <p>
+            <label for="volume">Vuosikerta:</label>
+            <input type="number" name="volume">
+        </p>
+
+        <p>
+            <label for="number">Numero:</label>
+            <input type="number" name="number">
+        </p>
+
+        <p>
+            <label for="pages">Sivut:</label>
+            <input type="text" name="pages">
+        </p>
+
+        <button type="submit">Lisää artikkeli</button>
     </form>
+    <p>
+        <a href="/">Eiku</a>
+    </p>
 </body>
 </html>
