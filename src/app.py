@@ -1,12 +1,17 @@
 from flask import Flask, render_template, request, redirect
-from src.papers import add_paper
+from src.papers import add_paper, get_papers
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    return "Tähän tulee Pookin viitteiden hallinta-järjestelmä"
+    return render_template("index.html")
+
+@app.route("/papers")
+def papers():
+    papers = get_papers()
+    return render_template("paper_list.html", papers=papers)
 
 
 @app.route("/new_paper")
