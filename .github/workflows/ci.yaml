@@ -26,7 +26,10 @@ jobs:
         run: uv sync
       #- name: Run unit tests
         #run: uv run pytest tests
-      - name: Install Playwright browser
+      - name: Initialize Robot Framework Browser
+        run: uv run rfbrowser init chromium
+
+      - name: Install Playwright browser dependencies
         run: uv run rfbrowser install --with-deps chromium
       - name: Run robot tests
         run: bash run_robot_tests.sh
