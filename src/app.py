@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-from src.papers import add_papers, get_papers
+from src.papers import add_paper, get_papers
 
 app = Flask(__name__)
 
