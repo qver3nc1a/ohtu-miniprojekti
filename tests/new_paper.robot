@@ -7,7 +7,8 @@ Suite Teardown   Close Browser
 *** Test Cases ***
 
 New Paper Page Should Be Open
-    Go To  ${NEW_PAPER_URL}
+    Go To  ${SERVER}
+    Click  css=a[href="/new_paper"]
     New Papers Page Should Be Open
 
 Each Required Field Must Be Filled

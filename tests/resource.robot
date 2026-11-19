@@ -22,7 +22,7 @@ Open And Configure Browser
     New Page  about:blank
 
 New Papers Page Should Be Open
-    Get Title  ==  New paper
+    Get Title  ==  Uusi artikkeli
 
 Reset Database
     Go To  ${RESET_URL}
