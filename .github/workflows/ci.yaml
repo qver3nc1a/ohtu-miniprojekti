@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: uv sync
       - name: Run unit tests
-        run: uv run pytest src/tests
+        run: uv run pytest tests
       - name: Install Playwright browser
         run: uv run rfbrowser install --with-deps chromium
       - name: Run robot tests
