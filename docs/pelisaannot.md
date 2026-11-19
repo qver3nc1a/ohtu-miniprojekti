@@ -1,1 +1,38 @@
 # Tiimin pelisäännöt
+
+-Viestintäkanavana käytetään discordia
+
+-Jokin reagointi tärkeisiin viesteihin (esim emojireaktio tai vastaus viestillä)
+
+-Varoitetaan etuajassa discordissa jos tulee poissaolo tai myöhästyminen.
+
+-Kaksi tapaamista viikossa. Keskiviikkona 16 jälkeen. Lauantaina 14 aikaan.
+
+-Jos joku ei pysy sovitussa mietitään ryhmän kanssa ja/tai imoitetaan ohjaajalle
+
+-Daily scrumeja vaikea pitää, sillä kaikki tekevät omaat tahtiin ja eri päivinä, joten discord-ryhmään ilmoitetaan aina kun aloitetaan oma task, kun task on valmis, ja jos tarvitaan apua
+
+-Commit viestien muoto mukailee [tällä sivulla olevaa muotoa](https://medium.com/@iambonitheuri/the-art-of-writing-meaningful-git-commit-messages-a56887a4cb49)
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+```
+The commit <type> can be
+
+    feat: Commits, which adds a new feature
+    fix: Commits, that fixes a bug
+    refactor: refactored code that neither fixes a bug nor adds a feature but rewrites/restructures your code.
+    chore : Changes that do not relate to a fix or feature and don’t modify src or test files basically miscellaneous commits (for example, updating dependencies or modifying .gitignore file)
+    perf : Commits are special refactor commits, geared towards improving performance.
+    ci : Continuous integration related.
+    ops : Commits, that affect operational components like infrastructure, deployment, backup , recovery …
+    build : Changes that affect the build system build tool, ci pipeline, dependencies, project version, …
+    docs : Commits, that affect documentation, such as the README.
+    style : changes that do not affect the meaning of the code, likely related to code formatting such as white-space, missing semi-colons, etc.
+    revert: reverts a previous commit.
+    test:commits that add missing tests or correct existing tests
+```
