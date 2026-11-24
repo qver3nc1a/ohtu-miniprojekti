@@ -7,6 +7,11 @@
     <h1>Lisää uusi artikkeli</h1>
     <form action="/add_paper" method="post">
         <p>
+            <label for="key">Viiteavain:</label>
+            <input type="text" name="key" required>
+        </p>
+
+        <p>
             <label for="author">Tekijä:</label>
             <input type="text" name="author" id='author' required>
         </p>

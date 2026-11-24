@@ -22,6 +22,7 @@ def new_paper():
 
 @app.route("/add_paper", methods=["POST"])
 def add_new_paper():
+    key = request.form["key"].strip()
     author = request.form["author"].strip()
     title = request.form["title"].strip()
     journal = request.form["journal"].strip()
@@ -42,6 +43,7 @@ def add_new_paper():
         return "Virheellinen vuosi (täytyy olla 0 < vuosi < 2027)"
 
     add_paper(
+        key,
         author,
         title,
         journal,
@@ -55,4 +57,4 @@ def add_new_paper():
 @app.route("/bibtex")
 def bibtex():
     papers = get_papers()
-    return render_template("bibtex.html")
+    return render_template("bibtex.html", papers=papers)
