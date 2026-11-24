@@ -30,8 +30,8 @@ def add_new_paper():
     number = request.form["number"].strip()
     pages = request.form["pages"].strip()
 
-    if not author or not title or not year:
-        return "Tekijä, otsikko ja julkaisuvuosi ovat pakollisia"
+    if not author or not title or not journal or not year:
+        return "Tekijä, otsikko, julkaisu ja julkaisuvuosi ovat pakollisia"
     try:
         year = int(year)
         volume = int(volume)
@@ -51,3 +51,8 @@ def add_new_paper():
         pages,
     )
     return redirect("/")
+
+@app.route("/bibtex")
+def bibtex():
+    papers = get_papers()
+    return render_template("bibtex.html")
