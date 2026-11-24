@@ -31,15 +31,29 @@ def add_new_paper():
     pages = request.form["pages"].strip()
 
     if not author or not title or not year:
-        return "Tekijä, otsikko ja julkaisuvuosi ovat pakollisia"
+        return render_template(
+            "new_paper.html",
+            error="Tekijä, otsikko, julkaisu ja julkaisuvuosi ovat pakollisia"
+        )
     try:
         year = int(year)
         volume = int(volume)
         number = int(number)
     except ValueError:
-        return "Vuoden, volyymin ja numeron täytyy olla numeroita"
-    if year < 0 or year > 2026:
-        return "Virheellinen vuosi (täytyy olla 0 < vuosi < 2027)"
+        return render_template(
+            "new_paper.html",
+            error="Vuoden, vuosikerran ja numeron täytyy olla numeroita"
+        )
+    if year < 0:
+        return render_template(
+            "new_paper.html",
+            error="Vuosi ei voi olla negatiivinen"
+        )
+    if year > 2026:
+        return render_template(
+            "new_paper.html",
+            error="Vuosi ei voi olla tulev"
+        )
 
     add_paper(
         author,
