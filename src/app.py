@@ -144,3 +144,6 @@ def add_new_book():
 def create_bibtex_file():
     create_file()
     return redirect("/")
+  
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5001)
