@@ -4,6 +4,11 @@
     <title>Uusi artikkeli</title>
 </head>
 <body>
+
+    <p>
+        <a href="/"><button type="button">Takaisin etusivulle</button></a>
+    </p>
+
     <h1>Lisää uusi artikkeli</h1>
     {% if error %}
         <p style="color: red;">{{ error }}</p>
@@ -51,8 +56,6 @@
 
         <button type="submit">Lisää artikkeli</button>
     </form>
-    <p>
-        <a href="/">Eiku</a>
-    </p>
+    
 </body>
 </html>
