@@ -19,6 +19,7 @@ Each Required Field Must Be Filled
 
 Submission Should Fail If Year Is Negative
     Go To  ${NEW_PAPER_URL}
+    Fill Field  key  test
     Fill Field  author  John Smith
     Fill Field  title  Paper Title
     Fill Field  journal  Journal Name
@@ -30,6 +31,7 @@ Submission Should Fail If Year Is Negative
     Submission Should Fail With Message  Vuosi ei voi olla negatiivinen
 Submission Should Fail If Year Is In The Future
     Go To  ${NEW_PAPER_URL}
+    Fill Field  key  test
     Fill Field  author  John Smith
     Fill Field  title  Paper Title
     Fill Field  journal  Journal Name
@@ -59,7 +61,7 @@ Submission Should Fail With Message
 Submission Is Blocked When Required Field Is Empty
     [Arguments]    ${empty_field}
     Go To    ${NEW_PAPER_URL}
-
+    Fill Field  key  test
     IF    $empty_field != 'author'
         Fill Field  author  John Smith
     END
