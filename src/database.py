@@ -23,5 +23,15 @@ def create_tables():
         );
     """)
 
+    connect.execute("""
+        CREATE TABLE IF NOT EXISTS books (
+            id INTEGER PRIMARY KEY,
+            author TEXT NOT NULL,
+            title TEXT NOT NULL,
+            publisher TEXT,
+            year INTEGER
+        );
+    """)
+
     connect.commit()
     connect.close()

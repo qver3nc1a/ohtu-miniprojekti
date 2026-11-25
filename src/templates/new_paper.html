@@ -5,6 +5,9 @@
 </head>
 <body>
     <h1>Lisää uusi artikkeli</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
     <form action="/add_paper" method="post">
         <p>
             <label for="key">Viiteavain:</label>
