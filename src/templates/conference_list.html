@@ -4,6 +4,10 @@
 </head>
 <body>
 
+    <p>
+        <a href="/references-menu"><button type="button">Takaisin viitteisiin</button></a>
+    </p>
+
     <h1>Tallennetut konferenssit</h1>
 
     {% for conference in conferences %}
@@ -53,10 +57,6 @@
     {% else %}
         <p>Konferensseja ei ole vielä lisätty.</p>
     {% endfor %}
-
-    <p>
-        <a href="/references-menu">Eiku</a>
-    </p>
 
 </body>
 </html>
