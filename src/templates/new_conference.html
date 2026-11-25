@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uusi konferenssi</title>
+</head>
+<body>
+    <h1>Lisää uusi konferenssi</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form action="/add_conference" method="post">
+        <p>
+            <label for="author">Kirjoittaja:</label>
+            <input type="text" name="author" required>
+        </p>
+        <p>
+            <label for="title">Otsikko:</label>
+            <input type="text" name="title" required>
+        </p>
+        <p>
+            <label for="booktitle">Konferenssijulkaisu:</label>
+            <input type="text" name="booktitle">
+        </p>
+        <p>
+            <label for="year">Vuosi:</label>
+            <input type="number" name="year">
+        </p>
+        <p>
+            <label for="editor">Editoija:</label>
+            <input type="text" name="editor">
+        </p>
+        <p>
+            <label for="volume">Voluumi:</label>
+            <input type="text" name="volume">
+        </p>
+        <p>
+            <label for="number">numero:</label>
+            <input type="text" name="number">
+        </p>
+        <p>
+            <label for="series">sarja:</label>
+            <input type="text" name="series">
+        </p>
+        <p>
+            <label for="pages">sivut:</label>
+            <input type="text" name="pages">
+        </p>
+        <p>
+            <label for="month">kuukausi:</label>
+            <input type="text" name="month">
+        </p>
+        <p>
+            <label for="organization">organisaatio:</label>
+            <input type="text" name="organization">
+        </p>
+        <p>
+            <label for="note">nootti:</label>
+            <input type="text" name="note">
+        </p>
+        <p>
+            <label for="annote">annotaatio:</label>
+            <input type="text" name="annote">
+        </p>
+        <p>
+            <label for="publisher">Kustantaja:</label>
+            <input type="text" name="publisher">
+        </p>
+        <p>
+            <label for="address">Osoite:</label>
+            <input type="text" name="address">
+        </p>
+
+        <button type="submit">Lisää konferenssi</button>
+    </form>
+    <p>
+        <a href="/">Eiku</a>
+    </p>
+</body>
+</html>
