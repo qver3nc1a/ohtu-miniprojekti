@@ -11,11 +11,11 @@ parannuskohteeseen.
 
 ## Kuvat retrospektiivistä:
 <img width="768" height="577" alt="image" src="https://github.com/user-attachments/assets/508ed539-ed58-4b80-af71-e6fa8bf91f05" />
-Glad:
+
 <img width="768" height="577" alt="image" src="https://github.com/user-attachments/assets/f7bbc0e8-62d5-4210-a9ca-ea34a0f5265f" />
-Sad:
+
 <img width="768" height="577" alt="image" src="https://github.com/user-attachments/assets/50a310a7-10e0-4a6b-a774-8d219be6034b" />
-Mad:
+
 <img width="768" height="577" alt="image" src="https://github.com/user-attachments/assets/0d4f7ab1-b2f6-4ed3-b19d-5ffb12e2a68f" />
 
 
