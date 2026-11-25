@@ -52,7 +52,7 @@ def add_new_paper():
     if year > 2026:
         return render_template(
             "new_paper.html",
-            error="Vuosi ei voi olla tulev"
+            error="Vuosi ei voi olla tulevaisuudessa"
         )
 
     add_paper(
