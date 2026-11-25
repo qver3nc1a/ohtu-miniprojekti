@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uusi kirja</title>
+</head>
+<body>
+    <h1>Lisää uusi kirja</h1>
+    <form action="/add_book" method="post">
+        <p>
+            <label for="title">Otsikko:</label>
+            <input type="text" name="title" required>
+        </p>
+
+        <p>
+            <label for="author">Kirjoittaja:</label>
+            <input type="text" name="author" required>
+        </p>
+
+        <p>
+            <label for="year">Vuosi:</label>
+            <input type="number" name="year" required>
+        </p>
+
+        <p>
+            <label for="publisher">Kustantaja:</label>
+            <input type="text" name="publisher">
+        </p>
+
+        <p>
+            <label for="address">Osoite:</label>
+            <input type="text" name="address">
+        </p>
+
+        <button type="submit">Lisää kirja</button>
+    </form>
+    <p>
+        <a href="/">Eiku</a>
+    </p>
+</body>
+</html>
