@@ -13,10 +13,11 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/papers")
+@app.route("/references")
 def papers():
     papers = get_papers()
-    return render_template("paper_list.html", papers=papers)
+    books = get_books()
+    return render_template("reference_list.html", papers=papers, books=books)
 
 
 @app.route("/new_paper")
