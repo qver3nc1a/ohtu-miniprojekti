@@ -30,6 +30,7 @@ def new_book():
 
 @app.route("/add_paper", methods=["POST"])
 def add_new_paper():
+    key = request.form["key"].strip()
     author = request.form["author"].strip()
     title = request.form["title"].strip()
     journal = request.form["journal"].strip()
@@ -64,6 +65,7 @@ def add_new_paper():
         )
 
     add_paper(
+        key,
         author,
         title,
         journal,
@@ -74,6 +76,10 @@ def add_new_paper():
     )
     return redirect("/")
 
+@app.route("/bibtex")
+def bibtex():
+    papers = get_papers()
+    return render_template("bibtex.html", papers=papers)
 
 @app.route("/add_book", methods=["POST"])
 def add_new_book():
