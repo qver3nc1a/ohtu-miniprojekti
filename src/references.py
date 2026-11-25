@@ -8,14 +8,14 @@ def create_file():
 
     for paper in papers:
         references += f"@article{{{paper["key"]},\n"
-        for value in paper.keys():
+        for value in paper.keys()[2:]:
             if paper[value]:
                 references += f"    {value} = {{{paper[value]}}},\n"
         references += f"}}\n\n"
 
     for book in books:
             references += f"@book{{{book["key"]},\n"
-            for value in book.keys():
+            for value in book.keys()[2:]:
                 if book[value]:
                     references += f"    {value} = {{{book[value]}}},\n"
             references += "}\n\n"
