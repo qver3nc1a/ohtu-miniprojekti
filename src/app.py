@@ -12,12 +12,26 @@ create_tables()
 def index():
     return render_template("index.html")
 
+@app.route("/references-menu")
+def references_menu():
+    return render_template("references_menu.html")
+
 
 @app.route("/references")
-def papers():
+def references():
     papers = get_papers()
     books = get_books()
     return render_template("reference_list.html", papers=papers, books=books)
+
+@app.route("/papers")
+def papers():
+    papers = get_papers()
+    return render_template("paper_list.html", papers=papers)
+
+@app.route("/books")
+def books():
+    books = get_books()
+    return render_template("book_list.html", books=books)
 
 
 @app.route("/new_paper")
