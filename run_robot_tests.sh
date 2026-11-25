@@ -8,7 +8,7 @@ echo "Running tests"
 echo "DB setup done"
 
 # käynnistetään Flask-palvelin taustalle
-uv run python3 src/app.py &
+uv run python -m src.app &
 
 echo "started Flask server"
 
