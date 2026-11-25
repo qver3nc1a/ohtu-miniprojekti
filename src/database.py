@@ -32,5 +32,25 @@ def create_tables():
         );
     """)
 
+    connect.execute("""
+            CREATE TABLE IF NOT EXISTS conferences (
+                id INTEGER PRIMARY KEY,
+                author TEXT NOT NULL,
+                title TEXT NOT NULL,
+                booktitle TEXT,
+                year INTEGER,
+                month TEXT,
+                editor TEXT,
+                volume TEXT,
+                number TEXT,
+                series TEXT,
+                pages TEXT,
+                organization TEXT,
+                note TEXT,
+                publisher TEXT,
+                address TEXT
+            );
+        """)
+
     connect.commit()
     connect.close()

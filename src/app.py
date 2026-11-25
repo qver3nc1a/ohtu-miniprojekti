@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 from src.database import create_tables
 from src.papers import add_paper, get_papers
 from src.books import add_book, get_books
+from src.conference import add_conference, get_conferences
 
 app = Flask(__name__)
 create_tables()
@@ -33,36 +34,61 @@ def new_conference():
 
 @app.route("/add_conference", methods=["POST"])
 def add_new_conference():
-    title = request.form["title"].strip()
     author = request.form["author"].strip()
+    title = request.form["title"].strip()
+    booktitle = request.form["booktitle"].strip()
     year = request.form["year"].strip()
+    month = request.form["month"].strip()
+    editor = request.form["editor"].strip()
+    volume = request.form["volume"].strip()
+    number = request.form["number"].strip()
+    series = request.form["series"].strip()
+    pages = request.form["pages"].strip()
+    organization = request.form["organization"].strip()
+    note = request.form["note"].strip()
+    publisher = request.form["publisher"].strip()
+    address = request.form["address"].strip()
 
     if not title or not author:
         return render_template(
             "new_conference.html",
             error="Otsikko ja kirjoittaja ovat pakollisia"
         )
-    try:
-        year = int(year)
-    except ValueError:
-        return render_template(
-            "new_conference.html",
-            error="Vuoden täytyy olla numero"
-        )
-    if year < 0:
-        return render_template(
-            "new_conference.html",
-            error="Vuosi ei voi olla negatiivinen"
-        )
-    if year > 2026:
-        return render_template(
-            "new_conference.html",
-            error="Vuosi ei voi olla tulevaisuudessa"
-        )
+    if year:
+        try:
+            year = int(year)
+        except ValueError:
+            return render_template(
+                "new_conference.html",
+                error="Vuoden täytyy olla numero"
+            )
+        if year < 0:
+            return render_template(
+                "new_conference.html",
+                error="Vuosi ei voi olla negatiivinen"
+            )
+        if year > 2026:
+            return render_template(
+                "new_conference.html",
+                error="Vuosi ei voi olla tulevaisuudessa"
+            )
 
-    # Call the function to add the conference to the database
-    # add_conference(title, author, year)
-
+    add_conference(
+        author,
+        title,
+        booktitle,
+        year,
+        month,
+        editor,
+        volume,
+        number,
+        series,
+        pages,
+        organization,
+        note,
+        publisher,
+        address
+    )
     return redirect("/")
 
 @app.route("/add_paper", methods=["POST"])
