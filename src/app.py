@@ -5,9 +5,11 @@ from src.papers import add_paper, get_papers
 app = Flask(__name__)
 create_tables()
 
+
 @app.route("/")
 def index():
     return render_template("index.html")
+
 
 @app.route("/papers")
 def papers():
@@ -18,6 +20,11 @@ def papers():
 @app.route("/new_paper")
 def new_paper():
     return render_template("new_paper.html")
+
+
+@app.route("/new_book")
+def new_paper():
+    return render_template("new_book.html")
 
 
 @app.route("/add_paper", methods=["POST"])
@@ -63,5 +70,33 @@ def add_new_paper():
         volume,
         number,
         pages,
+    )
+    return redirect("/")
+
+
+@app.route("/add_book", methods=["POST"])
+def add_new_book():
+    title = request.form["title"].strip()
+    author = request.form["author"].strip()
+    year = request.form["year"].strip()
+    publisher = request.form["publisher"].strip()
+    address = request.form["address"].strip()
+
+    if not title or not author or not year:
+        return "Otsikko, kirjoittaja ja julkaisuvuosi ovat pakollisia"
+    try:
+        year = int(year)
+    except ValueError:
+        return "Vuoden täytyy olla numero"
+    if year < 0 or year > 2026:
+        return "Virheellinen vuosi (täytyy olla 0 < vuosi < 2027)"
+
+    add_paper(
+        title,
+        author,
+        year,
+        year,
+        publisher,
+        address,
     )
     return redirect("/")
