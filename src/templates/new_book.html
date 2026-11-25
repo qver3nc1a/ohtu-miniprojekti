@@ -10,6 +10,11 @@
     {% endif %}
     <form action="/add_book" method="post">
         <p>
+            <label for="key">Viiteavain:</label>
+            <input type="text" name="key" required>
+        </p>
+        
+        <p>
             <label for="title">Otsikko:</label>
             <input type="text" name="title" required>
         </p>
