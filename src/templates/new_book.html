@@ -5,6 +5,9 @@
 </head>
 <body>
     <h1>Lisää uusi kirja</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
     <form action="/add_book" method="post">
         <p>
             <label for="title">Otsikko:</label>
