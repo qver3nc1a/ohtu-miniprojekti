@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <title>Tallennetut konferenssit</title>
+</head>
+<body>
+
+    <h1>Tallennetut konferenssit</h1>
+
+    {% for conference in conferences %}
+        <article>
+            <h2>{{ conference.title }}</h2>
+
+            <p><strong>Tekijä:</strong> {{ conference.author }}</p>
+            <p><strong>Otsikko:</strong> {{ conference.title }}</p>
+
+            {% if conference.booktitle %}
+                <p><strong>Konferenssijulkaisu:</strong> {{ conference.booktitle }}</p>
+            {% endif %}
+            {% if conference.year %}
+                <p><strong>Vuosi:</strong> {{ conference.year }}</p>
+            {% endif %}
+            {% if conference.month %}
+                <p><strong>kuukausi:</strong> {{ conference.month }}</p>
+            {% endif %}
+            {% if conference.editor %}
+                <p><strong>Editoija:</strong> {{ conference.editor }}</p>
+            {% endif %}
+            {% if conference.volume %}
+                <p><strong>Vuosikerta:</strong> {{ conference.volume }}</p>
+            {% endif %}
+            {% if conference.number %}
+                <p><strong>numero:</strong> {{ conference.number }}</p>
+            {% endif %}
+            {% if conference.series %}
+                <p><strong>Sarja:</strong> {{ conference.series }}</p>
+            {% endif %}
+            {% if conference.pages %}
+                <p><strong>Sivut:</strong> {{ conference.pages }}</p>
+            {% endif %}
+            {% if conference.organization %}
+                <p><strong>Organisaatio:</strong> {{ conference.organization }}</p>
+            {% endif %}
+            {% if conference.note %}
+                <p><strong>Nootti:</strong> {{ conference.note }}</p>
+            {% endif %}
+            {% if conference.publisher %}
+                <p><strong>Kustantaja:</strong> {{ conference.publisher }}</p>
+            {% endif %}
+            {% if conference.address %}
+                <p><strong>Osoite:</strong> {{ conference.address }}</p>
+            {% endif %}
+        </article>
+    {% else %}
+        <p>Konferensseja ei ole vielä lisätty.</p>
+    {% endfor %}
+
+    <p>
+        <a href="/references-menu">Eiku</a>
+    </p>
+
+</body>
+</html>

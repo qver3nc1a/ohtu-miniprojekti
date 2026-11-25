@@ -52,8 +52,8 @@ Submission Should Fail With Message
 
 Submission Is Blocked When Required Field Is Empty
     [Arguments]    ${empty_field}
-    Go To    ${NEW_conference_URL}
-    Fill Field  key  test
+    Go To    ${NEW_CONFERENCE_URL}
+    Fill Field  note  test
     IF    $empty_field != 'author'
         Fill Field  author  John Smith
     END

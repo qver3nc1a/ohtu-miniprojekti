@@ -22,7 +22,8 @@ def references_menu():
 def references():
     papers = get_papers()
     books = get_books()
-    return render_template("reference_list.html", papers=papers, books=books)
+    conferences = get_conferences()
+    return render_template("reference_list.html", papers=papers, books=books, conferences=conferences)
 
 @app.route("/papers")
 def papers():
@@ -34,6 +35,10 @@ def books():
     books = get_books()
     return render_template("book_list.html", books=books)
 
+@app.route("/conferences")
+def conferences():
+    conferences = get_conferences()
+    return render_template("conference_list.html", conferences=conferences)
 
 @app.route("/new_paper")
 def new_paper():
