@@ -109,8 +109,10 @@ def add_new_paper():
         )
     try:
         year = int(year)
-        volume = int(volume)
-        number = int(number)
+        if volume:
+            volume = int(volume)
+        if number:
+            number = int(number)
     except ValueError:
         return render_template(
             "new_paper.html",
