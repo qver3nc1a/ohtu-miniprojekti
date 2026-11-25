@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <title>BibTeX</title>
+</head>
+<body>
+
+    <h1>BibTeX</h1> 
+ 
+    {% for paper in papers %} 
+        <article> 
+            <p>@article&#123;{{ paper.key }},<br>
+
+            &emsp;author = &#123;{{ paper.author }}&#125;,<br>
+            &emsp;title = &#123;{{ paper.title }}&#125;,<br>
+            &emsp;year =  &#123;{{ paper.year }}&#125;<br>
+            &emsp;journal =  &#123;{{ paper.journal }}&#125;<br>
+
+            {% if paper.volume %} 
+                &emsp;volume =  &#123;{{ paper.volume }}&#125;<br>
+            {% endif %}
+            {% if paper.number %}
+                &emsp;number =  &#123;{{ paper.number }}&#125;<br>
+            {% endif %}
+            {% if paper.pages %} 
+                &emsp;pages =  &#123;{{ paper.pages }}&#125;<br>
+            {% endif %}
+            &#125;</p>
+        </article> 
+    {% else %} 
+        <p>Artikkeleita ei ole vielä lisätty.</p> 
+    {% endfor %}
+
+    {% for book in books %} 
+        <article> 
+            <p>@book&#123;{{ book.key }},<br>
+
+            &emsp;author = &#123;{{ book.author }}&#125;,<br>
+            &emsp;title = &#123;{{ book.title }}&#125;,<br>
+            &emsp;publisher =  &#123;{{ book.publisher }}&#125;<br>
+            &emsp;year =  &#123;{{ book.year }}&#125;<br>
+
+            {% if book.address %} 
+                &emsp;address =  &#123;{{ book.address }}&#125;<br>
+            {% endif %}
+
+            &#125;</p>
+        </article> 
+    {% else %} 
+        <p>Kirjoja ei ole vielä lisätty.</p>
+    {% endfor %}
+    <p>
+        <a href="/">Eiku</a>
+    </p>
+
+</body>
+</html>

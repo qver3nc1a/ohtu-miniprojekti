@@ -12,6 +12,7 @@ def create_tables():
     connect.execute("""
         CREATE TABLE IF NOT EXISTS papers (
             id INTEGER PRIMARY KEY,
+            key TEXT NOT NULL,
             author TEXT NOT NULL,
             title TEXT NOT NULL,
             journal TEXT,
@@ -19,6 +20,18 @@ def create_tables():
             volume TEXT,
             number TEXT,
             pages TEXT
+        );
+    """)
+
+    connect.execute("""
+        CREATE TABLE IF NOT EXISTS books (
+            id INTEGER PRIMARY KEY,
+            key TEXT NOT NULL,
+            author TEXT NOT NULL,
+            title TEXT NOT NULL,
+            publisher TEXT,
+            year INTEGER,
+            address TEXT
         );
     """)
 
