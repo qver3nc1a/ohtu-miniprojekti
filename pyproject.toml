@@ -14,5 +14,6 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "pylint>=4.1.4",
     "robotframework>=7.5.1",
 ]
