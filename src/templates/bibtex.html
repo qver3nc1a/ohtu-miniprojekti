@@ -23,12 +23,31 @@
             {% endif %}
             {% if paper.pages %} 
                 &emsp;pages =  &#123;{{ paper.pages }}&#125;<br>
-            {% endif %} 
+            {% endif %}
             &#125;</p>
         </article> 
     {% else %} 
         <p>Artikkeleita ei ole vielä lisätty.</p> 
-    {% endfor %} 
+    {% endfor %}
+
+    {% for book in books %} 
+        <article> 
+            <p>@book&#123;{{ book.key }},<br>
+
+            &emsp;author = &#123;{{ book.author }}&#125;,<br>
+            &emsp;title = &#123;{{ book.title }}&#125;,<br>
+            &emsp;publisher =  &#123;{{ book.publisher }}&#125;<br>
+            &emsp;year =  &#123;{{ book.year }}&#125;<br>
+
+            {% if book.address %} 
+                &emsp;address =  &#123;{{ book.address }}&#125;<br>
+            {% endif %}
+
+            &#125;</p>
+        </article> 
+    {% else %} 
+        <p>Kirjoja ei ole vielä lisätty.</p>
+    {% endfor %}
     <p>
         <a href="/">Eiku</a>
     </p>
