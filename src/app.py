@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 from src.database import create_tables
 from src.papers import add_paper, get_papers
 from src.books import add_book, get_books
+from src.references import create_file
 
 app = Flask(__name__)
 create_tables()
@@ -122,4 +123,9 @@ def add_new_book():
         year,
         address,
     )
+    return redirect("/")
+
+@app.route("/bibtex_file")
+def create_bibtex_file():
+    create_file()
     return redirect("/")
