@@ -3,6 +3,7 @@ from src.database import create_tables
 from src.papers import add_paper, get_papers
 from src.books import add_book, get_books
 from src.conference import add_conference, get_conferences
+from src.references import create_file
 
 app = Flask(__name__)
 create_tables()
@@ -13,10 +14,11 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/papers")
+@app.route("/references")
 def papers():
     papers = get_papers()
-    return render_template("paper_list.html", papers=papers)
+    books = get_books()
+    return render_template("reference_list.html", papers=papers, books=books)
 
 
 @app.route("/new_paper")
@@ -187,4 +189,9 @@ def add_new_book():
         year,
         address,
     )
+    return redirect("/")
+
+@app.route("/bibtex_file")
+def create_bibtex_file():
+    create_file()
     return redirect("/")
