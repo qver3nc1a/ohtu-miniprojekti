@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from src.database import create_tables
 from src.papers import add_paper, get_papers
+from src.books import add_book, get_books
 
 app = Flask(__name__)
 create_tables()
@@ -23,7 +24,7 @@ def new_paper():
 
 
 @app.route("/new_book")
-def new_paper():
+def new_book():
     return render_template("new_book.html")
 
 
@@ -105,12 +106,10 @@ def add_new_book():
             error="Vuosi ei voi olla tulevaisuudessa"
         )
 
-    add_paper(
-        title,
+    add_book(
         author,
-        year,
-        year,
+        title,
         publisher,
-        address,
+        year,
     )
     return redirect("/")
