@@ -9,6 +9,7 @@ def get_connection():
 def create_tables():
     connect = get_connection()
 
+    # Luo paperit
     connect.execute("""
         CREATE TABLE IF NOT EXISTS papers (
             id INTEGER PRIMARY KEY,
@@ -23,6 +24,7 @@ def create_tables():
         );
     """)
 
+    # Luo kirjat
     connect.execute("""
         CREATE TABLE IF NOT EXISTS books (
             id INTEGER PRIMARY KEY,
@@ -31,6 +33,27 @@ def create_tables():
             title TEXT NOT NULL,
             publisher TEXT,
             year INTEGER,
+            address TEXT
+        );
+    """)
+
+    # Luo konferenssit
+    connect.execute("""
+        CREATE TABLE IF NOT EXISTS conferences (
+            id INTEGER PRIMARY KEY,
+            author TEXT NOT NULL,
+            title TEXT NOT NULL,
+            booktitle TEXT,
+            year INTEGER,
+            month TEXT,
+            editor TEXT,
+            volume TEXT,
+            number TEXT,
+            series TEXT,
+            pages TEXT,
+            organization TEXT,
+            note TEXT,
+            publisher TEXT,
             address TEXT
         );
     """)

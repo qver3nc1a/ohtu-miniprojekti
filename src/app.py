@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 from src.database import create_tables
 from src.papers import add_paper, get_papers
 from src.books import add_book, get_books
+from src.conference import add_conference, get_conferences
 from src.references import create_file
 
 app = Flask(__name__)
@@ -21,7 +22,8 @@ def references_menu():
 def references():
     papers = get_papers()
     books = get_books()
-    return render_template("reference_list.html", papers=papers, books=books)
+    conferences = get_conferences()
+    return render_template("reference_list.html", papers=papers, books=books, conferences=conferences)
 
 @app.route("/papers")
 def papers():
@@ -33,6 +35,10 @@ def books():
     books = get_books()
     return render_template("book_list.html", books=books)
 
+@app.route("/conferences")
+def conferences():
+    conferences = get_conferences()
+    return render_template("conference_list.html", conferences=conferences)
 
 @app.route("/new_paper")
 def new_paper():
@@ -43,6 +49,68 @@ def new_paper():
 def new_book():
     return render_template("new_book.html")
 
+@app.route("/new_conference")
+def new_conference():
+    return render_template("new_conference.html")
+
+@app.route("/add_conference", methods=["POST"])
+def add_new_conference():
+    author = request.form["author"].strip()
+    title = request.form["title"].strip()
+    booktitle = request.form["booktitle"].strip()
+    year = request.form["year"].strip()
+    month = request.form["month"].strip()
+    editor = request.form["editor"].strip()
+    volume = request.form["volume"].strip()
+    number = request.form["number"].strip()
+    series = request.form["series"].strip()
+    pages = request.form["pages"].strip()
+    organization = request.form["organization"].strip()
+    note = request.form["note"].strip()
+    publisher = request.form["publisher"].strip()
+    address = request.form["address"].strip()
+
+    if not title or not author:
+        return render_template(
+            "new_conference.html",
+            error="Otsikko ja kirjoittaja ovat pakollisia"
+        )
+    if year:
+        try:
+            year = int(year)
+        except ValueError:
+            return render_template(
+                "new_conference.html",
+                error="Vuoden täytyy olla numero"
+            )
+        if year < 0:
+            return render_template(
+                "new_conference.html",
+                error="Vuosi ei voi olla negatiivinen"
+            )
+        if year > 2026:
+            return render_template(
+                "new_conference.html",
+                error="Vuosi ei voi olla tulevaisuudessa"
+            )
+
+    add_conference(
+        author,
+        title,
+        booktitle,
+        year,
+        month,
+        editor,
+        volume,
+        number,
+        series,
+        pages,
+        organization,
+        note,
+        publisher,
+        address
+    )
+    return redirect("/")
 
 @app.route("/add_paper", methods=["POST"])
 def add_new_paper():
@@ -62,8 +130,10 @@ def add_new_paper():
         )
     try:
         year = int(year)
-        volume = int(volume)
-        number = int(number)
+        if volume:
+            volume = int(volume)
+        if number:
+            number = int(number)
     except ValueError:
         return render_template(
             "new_paper.html",

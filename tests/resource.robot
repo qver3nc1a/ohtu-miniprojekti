@@ -7,6 +7,7 @@ ${DELAY}      500ms
 ${HOME_URL}   http://${SERVER}
 ${NEW_PAPER_URL}  http://${SERVER}/new_paper
 ${NEW_BOOK_URL}  http://${SERVER}/new_book
+${NEW_CONFERENCE_URL}  http://${SERVER}/new_conference
 ${PAPERS_URL}  http://${SERVER}/papers
 ${RESET_URL}  http://${SERVER}/reset_db
 ${BROWSER}    chromium
@@ -27,6 +28,9 @@ New Papers Page Should Be Open
 
 New Books Page Should Be Open
     Get Title  ==  Uusi kirja
+
+New Conference Page Should Be Open
+    Get Title  ==  Uusi konferenssi
 
 Reset Database
     Go To  ${RESET_URL}
