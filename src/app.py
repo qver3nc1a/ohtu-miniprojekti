@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, Response
 from src.database import create_tables
 from src.papers import add_paper, get_papers
 from src.books import add_book, get_books
@@ -125,7 +125,11 @@ def add_new_book():
     )
     return redirect("/")
 
-@app.route("/bibtex_file")
+@app.route("/references.bib")
 def create_bibtex_file():
-    create_file()
-    return redirect("/")
+    references = create_file()
+    return Response(
+        references,
+        mimetype="application/x-bibtex",
+        headers={"Content-Disposition": "attachment; filename=references.bib"}
+    )
