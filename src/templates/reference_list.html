@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+    <title>Tallennetut viitteet</title>
+</head>
+<body>
+
+    <p>
+        <a href="/references-menu"><button type="button">Takaisin viitteisiin</button></a>
+    </p>
+
+    <h1>Tallennetut viitteet</h1>
+
+    {% if papers != [] %}
+        <h2>Artikkelit</h2>
+    {% endif %}
+
+    {% for paper in papers %} 
+        <article> 
+            <h2>{{ paper.title }}</h2> 
+
+            <p><strong>Tekijä:</strong> {{ paper.author }}</p> 
+            <p><strong>Vuosi:</strong> {{ paper.year }}</p> 
+
+            {% if paper.journal %} 
+                <p><strong>Julkaisu:</strong> {{ paper.journal }}</p> 
+            {% endif %} 
+            {% if paper.volume %} 
+                <p><strong>Vuosikerta:</strong> {{ paper.volume }}</p> 
+            {% endif %}
+            {% if paper.number %}
+                <p><strong>Numero:</strong> {{ paper.number }}</p>
+            {% endif %}
+            {% if paper.pages %} 
+                <p><strong>Sivut:</strong> {{ paper.pages }}</p> 
+            {% endif %} 
+        </article> 
+    {% else %}
+        <p>Artikkeleita ei ole vielä lisätty.</p>
+    {% endfor %}
+
+    {% if books != [] %}
+        <h2>Kirjat</h2>
+    {% endif %}
+
+    {% for book in books %} 
+        <article> 
+            <h2>{{ book.title }}</h2> 
+
+            <p><strong>Tekijä:</strong> {{ book.author }}</p> 
+            <p><strong>Vuosi:</strong> {{ book.year }}</p> 
+
+            {% if book.publisher %} 
+                <p><strong>Kustantaja:</strong> {{ book.publisher }}</p> 
+            {% endif %} 
+            {% if book.address %} 
+                <p><strong>Osoite:</strong> {{ book.address }}</p> 
+            {% endif %}
+        </article> 
+    {% else %} 
+        <p>Kirjoja ei ole vielä lisätty.</p> 
+    {% endfor %} 
+
+
+</body>
+</html>

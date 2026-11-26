@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 from src.database import create_tables
 from src.papers import add_paper, get_papers
 from src.books import add_book, get_books
+from src.references import create_file
 
 app = Flask(__name__)
 create_tables()
@@ -11,11 +12,26 @@ create_tables()
 def index():
     return render_template("index.html")
 
+@app.route("/references-menu")
+def references_menu():
+    return render_template("references_menu.html")
+
+
+@app.route("/references")
+def references():
+    papers = get_papers()
+    books = get_books()
+    return render_template("reference_list.html", papers=papers, books=books)
 
 @app.route("/papers")
 def papers():
     papers = get_papers()
     return render_template("paper_list.html", papers=papers)
+
+@app.route("/books")
+def books():
+    books = get_books()
+    return render_template("book_list.html", books=books)
 
 
 @app.route("/new_paper")
@@ -123,3 +139,11 @@ def add_new_book():
         address,
     )
     return redirect("/")
+
+@app.route("/bibtex_file")
+def create_bibtex_file():
+    create_file()
+    return redirect("/")
+  
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5001)

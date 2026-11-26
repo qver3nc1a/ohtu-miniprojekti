@@ -8,6 +8,7 @@ Suite Teardown   Close Browser
 
 Paper exists After Submission
     Go To  ${NEW_PAPER_URL}
+    Fill Field  key  test
     Fill Field  author  John Smith
     Fill Field  title  Paper Title
     Fill Field  journal  Journal Name
