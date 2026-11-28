@@ -9,8 +9,5 @@
 
 ## Käynnistys
 
-Asenna riippuvuudet:
-```bash
-uv sync
-uv run flask --app src.app run
-```
+Sovellus toimii [OKD-klusterilla](https://route-ohjelmistotuotanto-lahiopetus-2026-21.ext.okd-cs-test-0.k8s.cs.helsinki.fi/)
+(Täytyy olla Eduroamissa)
