@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <title>Tallennetut kirjat</title>
+</head>
+<body>
+
+    <p>
+        <a href="/references-menu"><button type="button">Takaisin viitteisiin</button></a>
+    </p>
+
+    <h1>Tallennetut kirjat</h1>
+
+    {% for book in books %}
+        <article>
+            <h2>{{ book.title }}</h2>
+
+            <p><strong>Tekijä:</strong> {{ book.author }}</p>
+            <p><strong>Vuosi:</strong> {{ book.year }}</p>
+
+            {% if book.publisher %}
+                <p><strong>Kustantaja:</strong> {{ book.publisher }}</p>
+            {% endif %}
+            {% if book.address %}
+                <p><strong>Osoite:</strong> {{ book.address }}</p>
+            {% endif %}
+        </article>
+    {% else %}
+        <p>Kirjoja ei ole vielä lisätty.</p>
+    {% endfor %}
+
+
+</body>
+</html>

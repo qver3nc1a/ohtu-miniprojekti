@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<head>
+    <title>Tallennetut viitteet</title>
+</head>
+<body>
+
+    <p>
+        <a href="/references-menu"><button type="button">Takaisin viitteisiin</button></a>
+    </p>
+
+    <h1>Tallennetut viitteet</h1>
+
+    {% if papers != [] %}
+        <h2>Artikkelit</h2>
+    {% endif %}
+
+    {% for paper in papers %} 
+        <article> 
+            <h2>{{ paper.title }}</h2> 
+
+            <p><strong>Tekijä:</strong> {{ paper.author }}</p> 
+            <p><strong>Vuosi:</strong> {{ paper.year }}</p> 
+
+            {% if paper.journal %} 
+                <p><strong>Julkaisu:</strong> {{ paper.journal }}</p> 
+            {% endif %} 
+            {% if paper.volume %} 
+                <p><strong>Vuosikerta:</strong> {{ paper.volume }}</p> 
+            {% endif %}
+            {% if paper.number %}
+                <p><strong>Numero:</strong> {{ paper.number }}</p>
+            {% endif %}
+            {% if paper.pages %} 
+                <p><strong>Sivut:</strong> {{ paper.pages }}</p> 
+            {% endif %} 
+        </article> 
+    {% else %}
+        <p>Artikkeleita ei ole vielä lisätty.</p>
+    {% endfor %}
+
+    {% if books != [] %}
+        <h2>Kirjat</h2>
+    {% endif %}
+
+    {% for book in books %} 
+        <article> 
+            <h2>{{ book.title }}</h2> 
+
+            <p><strong>Tekijä:</strong> {{ book.author }}</p> 
+            <p><strong>Vuosi:</strong> {{ book.year }}</p> 
+
+            {% if book.publisher %} 
+                <p><strong>Kustantaja:</strong> {{ book.publisher }}</p> 
+            {% endif %} 
+            {% if book.address %} 
+                <p><strong>Osoite:</strong> {{ book.address }}</p> 
+            {% endif %}
+        </article> 
+    {% else %} 
+        <p>Kirjoja ei ole vielä lisätty.</p> 
+    {% endfor %} 
+
+    {% if conferences != [] %}
+        <h2>Konferenssit</h2>
+    {% endif %}
+
+    {% for conference in conferences %}
+        <article>
+            <h2>{{ conference.title }}</h2>
+
+            <p><strong>Tekijä:</strong> {{ conference.author }}</p>
+            <p><strong>Otsikko:</strong> {{ conference.title }}</p>
+
+            {% if conference.booktitle %}
+                <p><strong>Konferenssijulkaisu:</strong> {{ conference.booktitle }}</p>
+            {% endif %}
+            {% if conference.year %}
+                <p><strong>Vuosi:</strong> {{ conference.year }}</p>
+            {% endif %}
+            {% if conference.month %}
+                <p><strong>kuukausi:</strong> {{ conference.month }}</p>
+            {% endif %}
+            {% if conference.editor %}
+                <p><strong>Editoija:</strong> {{ conference.editor }}</p>
+            {% endif %}
+            {% if conference.volume %}
+                <p><strong>Vuosikerta:</strong> {{ conference.volume }}</p>
+            {% endif %}
+            {% if conference.number %}
+                <p><strong>numero:</strong> {{ conference.number }}</p>
+            {% endif %}
+            {% if conference.series %}
+                <p><strong>Sarja:</strong> {{ conference.series }}</p>
+            {% endif %}
+            {% if conference.pages %}
+                <p><strong>Sivut:</strong> {{ conference.pages }}</p>
+            {% endif %}
+            {% if conference.organization %}
+                <p><strong>Organisaatio:</strong> {{ conference.organization }}</p>
+            {% endif %}
+            {% if conference.note %}
+                <p><strong>Nootti:</strong> {{ conference.note }}</p>
+            {% endif %}
+            {% if conference.publisher %}
+                <p><strong>Kustantaja:</strong> {{ conference.publisher }}</p>
+            {% endif %}
+            {% if conference.address %}
+                <p><strong>Osoite:</strong> {{ conference.address }}</p>
+            {% endif %}
+        </article>
+    {% else %}
+        <p>Konferensseja ei ole vielä lisätty.</p>
+    {% endfor %}
+
+</body>
+</html>

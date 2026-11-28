@@ -19,6 +19,7 @@ Each Required Field Must Be Filled
 
 Submission Should Fail If Year Is Negative
     Go To  ${NEW_PAPER_URL}
+    Fill Field  key  test
     Fill Field  author  John Smith
     Fill Field  title  Paper Title
     Fill Field  journal  Journal Name
@@ -27,10 +28,10 @@ Submission Should Fail If Year Is Negative
     Fill Field  number   1
     Fill Field  pages   1-4
     Click  css=button[type="submit"]
-    Submission Should Fail With Message  Virheellinen vuosi (täytyy olla 0 < vuosi < 2027)
-
+    Submission Should Fail With Message  Vuosi ei voi olla negatiivinen
 Submission Should Fail If Year Is In The Future
     Go To  ${NEW_PAPER_URL}
+    Fill Field  key  test
     Fill Field  author  John Smith
     Fill Field  title  Paper Title
     Fill Field  journal  Journal Name
@@ -39,7 +40,7 @@ Submission Should Fail If Year Is In The Future
     Fill Field  number   1
     Fill Field  pages   1-4
     Click  css=button[type="submit"]
-    Submission Should Fail With Message  Virheellinen vuosi (täytyy olla 0 < vuosi < 2027)
+    Submission Should Fail With Message  Vuosi ei voi olla tulevaisuudessa
 
 Year Volume And Number Use Numeric Inputs
     [Template]    Field Should Be Set As A Number Input
@@ -60,7 +61,7 @@ Submission Should Fail With Message
 Submission Is Blocked When Required Field Is Empty
     [Arguments]    ${empty_field}
     Go To    ${NEW_PAPER_URL}
-
+    Fill Field  key  test
     IF    $empty_field != 'author'
         Fill Field  author  John Smith
     END
