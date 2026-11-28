@@ -20,5 +20,4 @@ def create_file():
                     references += f"    {value} = {{{book[value]}}},\n"
             references += "}\n\n"
 
-    with open("references.bib", "w", encoding="utf-8") as file:
-        file.write(references)
+    return references
